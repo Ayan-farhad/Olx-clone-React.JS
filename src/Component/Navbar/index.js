@@ -45,9 +45,11 @@ function Navbar(){
                 <p style={{ margin: "0 8px" }}>Land&Plots</p>
 
             
-
-
+            
             </div>
+
+            <img style={{width:'90%'}} src='https://images.olx.com.pk/thumbnails/295176473-800x600.webp' /><br/><br/><br/>
+
             </div>
     )
 }

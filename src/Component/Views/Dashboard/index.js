@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../../Navbar";
 // import DetailScreen from "../../../Screen/DetailScreen";
 import Footer from "../../Footer";
+import Category from "../../Category";
+import BackToTop from "../../../Screen/DetailScreen/BackToTop";
 
 function DashBoard() {
     const [products, setProducts] = useState([]);
@@ -26,15 +28,18 @@ function DashBoard() {
 
                 <Navbar/>
 
-                {products.map(item => {
-                    const { price, description, images , title , id} = item
-                    return <Cards price={price} description={description} images={images} title={title} id={id}  />
-                    
-                })}
+                <Category/><br/><br/>
 
-                <Footer/>
+                {products.map(item => {
+                    const { price, description, images , title , id , brand } = item
+                    return <Cards price={price} description={description} images={images} brand={brand} title={title} id={id}  />
+                    
+                })} <br/><br/><br/>
 
             </div>
+                <BackToTop/>
+                <Footer/>
+
         </div>
     )
 }

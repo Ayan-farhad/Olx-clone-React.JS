@@ -1,4 +1,10 @@
 .App{
-    text-align: center;
-    
+    text-align: center;   
 }
+
+/* 
+database firestore me baqi data save karana hai
+frestore:
+- collection(array )
+- document (objext)
+*/ 

@@ -1,59 +1,58 @@
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithEmailAndPassword    } from "firebase/auth";
+
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBIW_LAs7n5kasnVB-YR_dcbafc8flycmU",
-  authDomain: "olx-app-3db89.firebaseapp.com",
-  projectId: "olx-app-3db89",
-  storageBucket: "olx-app-3db89.appspot.com",
-  messagingSenderId: "383782072554",
-  appId: "1:383782072554:web:5d923000ee36fbff61a793",
-  measurementId: "G-JHK2YVMC9E"
+  apiKey: "AIzaSyDNm1iXlzJezANtXytGRwes4yGxP2h9ztg",
+  authDomain: "olx-app-13128.firebaseapp.com",
+  projectId: "olx-app-13128",
+  storageBucket: "olx-app-13128.appspot.com",
+  messagingSenderId: "94648987534",
+  appId: "1:94648987534:web:4d7501da3a7e0c0f763edf",
+  measurementId: "G-CKSY3GF4P5"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth  = getAnalytics(app);
-
-function signUp(userInfo){
-    const {email , password} = userInfo
-
 const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+const SignUp = (userInfo) => {
+  const { email, password } = userInfo
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      // ...
+      alert('successfully')
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      alert(errorMessage)
+    });
 
 }
 
-function login(userInfo){
-    const {email , password} = userInfo;
+const login = (userInfo) => {
+  const { email, password } = userInfo
 
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        // ...
-        alert('Login successfully')
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      alert('Login SuccessFully')
     })
     .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        alert(errorMessage)
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage)
     });
+
 }
 
 export {
-    login,
-    signUp
+  SignUp,
+  login
 }

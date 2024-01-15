@@ -3,8 +3,27 @@
 }
 
 /* 
-database firestore me baqi data save karana hai
-frestore:
-- collection(array )
-- document (objext)
-*/ 
+// Steps To Use Firebase (har separate cheez ke liye const or import hoga)
+// 1) console.firebase.google.com
+// 2) add project
+// 3) click on web
+// 4) npm install firebase
+// 5) create a file 'firebase.js' in config folder (firebase ka saara kaam isi mein hoga)
+// 6) initial code copy paste karna hai
+// 7) register or login ke component banaye
+// 8) firebase.js mein register or login ke code copy/paste kiye google pr "firebase web signup/signin" search karke.
+// 9) Database mein password store nahi karwate baki sab store karwadein "firestore web add data"
+// 10) Firestore (Database) => (Collection [array ki tarah] , Document{object ki tarah})
+
+// Search 'firebase web signup'
+
+
+
+// .then kis mein lagta hai:
+// Javascript Functions 
+// 1) Asynchronous => setTimeout , setInterval , fetch , firebase all methods etc. (Asynchronous ka response hamesha synchronous ke baad hi chalega)
+// Asynch ki nishani => generally inke aage .then .catch lagta hai
+
+// 2) Synchronous: alert , log , etc
+
+// [.then or .catch ka alternate async await hai] */ 

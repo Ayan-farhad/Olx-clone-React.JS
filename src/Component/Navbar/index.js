@@ -29,7 +29,7 @@ function Navbar(){
 
                     <input style={{ width: '40rem', height: '2.3rem', marginLeft: 18, marginTop: 6, border: '2px solid black', borderTopLeftRadius: 5, borderBottomLeftRadius:5 , paddingLeft:8 }} placeholder="Find Cars, Mobile Phones and more..." ></input>
                     <img style={{ background: 'black', width: 50, height: 42.8, marginTop: 5.8 ,borderTopRightRadius: 5 , borderBottomRightRadius:5 }} src={search} ></img>
-                    <button onClick={()=> navigate('/Login')} style={{marginLeft:'1rem' , marginRight:'1rem',border:'none' , fontSize:20 , fontWeight:'bolder'}} ><u>Login</u></button>
+                    <button onClick={()=>navigate('/Login')} style={{marginLeft:'1rem' , marginRight:'1rem',border:'none' , fontSize:20 , fontWeight:'bolder'}} ><u>Login</u></button>
 
                 
                     <img src={sellicon }  style={{width:'5.5rem'}}></img>

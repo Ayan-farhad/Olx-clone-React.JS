@@ -20,17 +20,17 @@ function Signup() {
             <h2>Signup</h2>
 
             <input placeholder="Fullname" onChange={(e) => setFullName(e.target.value)}  />
-            <input placeholder="Age" onChange={(e) => setAge(e.target.value)} />
+            <input placeholder="Age"  onChange={(e) => setAge(e.target.value)} />
             <input placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)} />
-            <input placeholder="Enter PAssword"  onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" placeholder="Enter PAssword"  onChange={(e) => setPassword(e.target.value)} />
             <br />
             <button onClick={register}  >Signup</button>
          
 
 
             <p>
-                Already have an account.
-                <span onClick={()=> navigate('/Login')} >login</span>
+                Already have an account. 
+                <span onClick={()=> navigate('/Login')} >Click here</span>
             </p>
 
 

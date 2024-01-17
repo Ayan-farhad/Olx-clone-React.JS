@@ -1,7 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword,
-        signInWithEmailAndPassword } from "firebase/auth";
-import { getFirestore,  collection, addDoc } from "firebase/firestore";
+import {
+  getAuth, createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "firebase/auth";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBIW_LAs7n5kasnVB-YR_dcbafc8flycmU",
@@ -19,22 +21,22 @@ const auth = getAuth();
 const db = getFirestore(app);
 
 
-const SignUp = async (userInfo)=>{
-  try{
-  const { email, password , age , fullname } = userInfo
-  await createUserWithEmailAndPassword(auth, email, password)
-  await addDoc(collection(db , 'users'),{
-    fullname,
-    age,
-    email
-  });
+const SignUp = async (userInfo) => {
+  try {
+    const { email, password, age, fullname } = userInfo
+    await createUserWithEmailAndPassword(auth, email, password)
+    await addDoc(collection(db, 'users'), {
+      fullname,
+      age,
+      email
+    });
 
-  alert('Successfully Register');
-  }catch(e){
+    alert('Successfully Register');
+  } catch (e) {
     alert(e.message);
-  }
+  };
 
-}
+};
 
 const login = async (userInfo) => {
 
@@ -42,7 +44,7 @@ const login = async (userInfo) => {
     const { email, password } = userInfo;
 
     return await signInWithEmailAndPassword(auth, email, password).then(res => {
-      console.log("🚀 ~ awaitsignInWithEmailAndPassword ~ res:", res)
+      console.log("🚀 ~ awaitsignInWithEmailAndPassword ~ res:", res);
 
       alert("logged in Successfully");
       return res
@@ -51,9 +53,9 @@ const login = async (userInfo) => {
     alert(e.message);
     return e
   };
-}
+};
 
 export {
   SignUp,
   login
-}
+};

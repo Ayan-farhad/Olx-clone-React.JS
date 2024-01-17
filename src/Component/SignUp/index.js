@@ -11,9 +11,22 @@ function Signup() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    const register = ()=>{
-        SignUp({email , password , age , fullname})
-    } 
+    // const register = ()=>{
+    //     SignUp({email , password , age , fullname})
+    // } 
+
+    const register = async () => {
+        await SignUp({ email, password }).then((res) => {
+        console.log("🚀 ~ awaitSignUp ~ res:", res)
+
+            if (res && res.user) {
+                navigate('/')
+            }
+
+        }).catch(err => {
+            console.log("🚀 ~ awaitSignUp ~ err:", err)
+        })
+    }
 
     return (
         <div>
@@ -30,7 +43,7 @@ function Signup() {
 
             <p>
                 Already have an account. 
-                <span onClick={()=> navigate('/Login')} >Click here</span>
+                <span onClick={()=> navigate('/Login')} >SignIn</span>
             </p>
 
 

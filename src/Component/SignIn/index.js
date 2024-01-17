@@ -10,9 +10,18 @@ function SignIn() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    const Login = () => {
-        login({ email, password })
-        navigate('/')
+    const Login = async () => {
+        await login({ email, password }).then((res) => {
+            console.log("🚀 ~ awaitlogin ~ res:", res)
+            if (res && res.user) {
+
+                navigate('/')
+            }
+
+        }).catch(err => {
+            console.log("🚀 ~ awaitlogin ~ err:", err)
+
+        })
     }
     return (
         <div>
@@ -23,7 +32,7 @@ function SignIn() {
             <button onClick={Login} >Login</button>
             <p>
                 Don't you have an account.
-                <span onClick={() => navigate('/register')} >click here</span>
+                <span onClick={() => navigate('/register')} >SignUp</span>
             </p>
 
         </div>

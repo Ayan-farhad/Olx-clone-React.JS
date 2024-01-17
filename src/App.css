@@ -27,3 +27,14 @@
 // 2) Synchronous: alert , log , etc
 
 // [.then or .catch ka alternate async await hai] */ 
+
+
+/* @media screen and (max-width: 600px) {
+    .input{
+        flex-direction: column;
+        align-items: center;
+    }
+    .SearchInp{
+        max-width: 20rem;
+    }
+} */

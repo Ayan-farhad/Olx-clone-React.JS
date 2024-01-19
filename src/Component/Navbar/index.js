@@ -19,9 +19,9 @@ function Navbar() {
                 <img style={{ width: 40, marginLeft: 40, }} src={olxtop} ></img>
 
                 <img style={{ marginLeft: '2rem' }} src={car} ></img>
-                <p> MOTORS </p>
+                <p style={{fontSize:13}} > MOTORS </p>
                 <img style={{ marginLeft: '2rem' }} src={building} ></img>
-                <p > PROPERTY </p>
+                <p style={{fontSize:13}} > PROPERTY </p>
             </div>
             <div className='input' style={{ display: "flex", paddingLeft: '2rem', paddingBottom: 10 }}>
                 <img style={{ width: 60, }} src={olx} ></img>

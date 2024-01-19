@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import {
-  getAuth, createUserWithEmailAndPassword,
+  getAuth,
+  createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
@@ -17,14 +18,14 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 
 const SignUp = async (userInfo) => {
   try {
-    const { email, password, age, fullname } = userInfo
-    await createUserWithEmailAndPassword(auth, email, password)
+    const { email, password, age, fullname } = userInfo;
+    await createUserWithEmailAndPassword(auth, email, password, fullname)
     await addDoc(collection(db, 'users'), {
       fullname,
       age,
@@ -32,13 +33,16 @@ const SignUp = async (userInfo) => {
     });
 
     alert('Successfully Register');
+    return true;
   } catch (e) {
     alert(e.message);
+    return e
   };
 
 };
 
 const login = async (userInfo) => {
+  console.log("🚀 ~ login ~ userInfo:", userInfo)
 
   try {
     const { email, password } = userInfo;
@@ -55,7 +59,27 @@ const login = async (userInfo) => {
   };
 };
 
+const postData = async (userInfo) => {
+  console.log("🚀 ~ postData ~ userInfo:", userInfo)
+  try {
+    const { productName, price, description, quantity } = userInfo;
+    await addDoc(collection(db, 'users'), {
+      productName,
+      price,
+      description,
+      quantity
+    });
+
+    alert('Successfully Post Ad');
+    return true;
+  } catch (e) {
+    alert(e.message);
+    return e
+  };
+}
+
 export {
   SignUp,
-  login
+  login,
+  postData
 };

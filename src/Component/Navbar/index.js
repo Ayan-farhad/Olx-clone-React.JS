@@ -32,7 +32,7 @@ function Navbar() {
                 <button onClick={() => navigate('/Login')} style={{ marginLeft: '1rem', marginRight: '1rem', border: 'none', fontSize: 20, fontWeight: 'bolder' }} ><u>Login</u></button>
 
 
-                <img src={sellicon} style={{ width: '5.5rem'}}></img>
+                <img onClick={()=> navigate('/postAdPage')} src={sellicon} style={{ width: '5.5rem'}}></img>
 
             </div>
 

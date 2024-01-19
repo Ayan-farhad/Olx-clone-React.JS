@@ -27,7 +27,7 @@ function SignIn() {
     return (<div>
        
             <div className='input' style={{textAlign:'center'}}>
-                <h1 style={{marginLeft:'3rem' , color:'blue'}}>Login Page</h1>
+                <h1 style={{ color:'blue'}}>Login Page</h1>
             </div>
 
         <div style={{ padding: 50 }} >

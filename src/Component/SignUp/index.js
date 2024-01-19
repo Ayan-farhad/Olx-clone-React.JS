@@ -5,33 +5,27 @@ import olx from '../../olx.svg';
 
 function Signup() {
     const navigate = useNavigate();
-
     const [fullname, setFullName] = useState()
     const [age, setAge] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    // const register = ()=>{
-    //     SignUp({email , password , age , fullname})
-    // } 
 
     const register = async () => {
-        await SignUp({ email, password }).then((res) => {
-            console.log("🚀 ~ awaitSignUp ~ res:", res)
-
-            navigate('/')
-
-        }).catch(err => {
-            console.log("🚀 ~ awaitSignUp ~ err:", err)
-        })
+        try {
+            await SignUp({ fullname, age, email, password });
+            navigate('/Login')
+        } catch (error) {
+            console.log("🚀 ~ register ~ error:", error)
+        }
     }
 
     return (<div>
 
         <div className='input' style={{ textAlign: 'center' }}>
-            <h1 style={{ marginLeft: '3rem', color: 'blue' }}>Signin Page</h1>
+            <h1 style={{color: 'blue' }}>Signup Page</h1>
         </div>
-        <div style={{ padding: 40 }}>
+        <div style={{ padding: 40  }}>
 
             <div style={{ background: '#e5eaea', borderRadius: 5, width: 400, height: 400, margin: 'auto', }}>
 
@@ -65,7 +59,7 @@ function Signup() {
 
                 <p style={{ fontSize: 14 }}>
                     Already have an account.
-                    <span onClick={() => navigate('/Login')} style={{ color: "blue" }} > SignIn</span>
+                    <span onClick={() => navigate('/Login')} style={{ color: "blue" }} > Login</span>
                 </p>
 
             </div>

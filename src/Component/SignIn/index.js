@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { login } from "../../Config/Firebase";
 import { useNavigate } from "react-router-dom";
 import olxtop from '../../olx top.svg';
@@ -10,6 +10,8 @@ function SignIn() {
     const navigate = useNavigate()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    
+
 
     const Login = async () => {
         await login({ email, password }).then((res) => {
@@ -46,8 +48,9 @@ function SignIn() {
                     borderRadius: 5, border: '1px solid black', paddingLeft: 10
                 }} /><br />
 
+                
                 <button onClick={Login} style={{
-                    margin: '1rem 0px 0px 0px', width: '11rem', fontWeight: 'bold', height: 30, background: 'aquamarine',
+                    margin: '1rem 0px 0px 0px', width: '11rem', fontWeight: 'bold', height: 30, background: '#002f34', color:'white' ,
                     border: 'none', borderRadius: 5
                 }} >Login</button>
 

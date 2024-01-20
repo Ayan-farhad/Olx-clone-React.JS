@@ -51,7 +51,7 @@ function Signup() {
                     border: '1px solid black', paddingLeft: 10, marginBottom: '0.5rem'
                 }} /><br />
                 <button onClick={register} style={{
-                    margin: '1rem 0px 0px 0px', width: '11rem', fontWeight: 'bold', height: 30, background: 'aquamarine',
+                    margin: '1rem 0px 0px 0px', width: '11rem', fontWeight: 'bold', height: 30, background: '#002f34', color:'white' ,
                     border: 'none', borderRadius: 5
                 }} >Signup</button>
 

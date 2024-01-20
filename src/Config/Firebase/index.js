@@ -4,7 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword
 } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc , getDocs } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBIW_LAs7n5kasnVB-YR_dcbafc8flycmU",
@@ -18,8 +19,9 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 
 const SignUp = async (userInfo) => {
@@ -62,12 +64,19 @@ const login = async (userInfo) => {
 const postData = async (userInfo) => {
   console.log("🚀 ~ postData ~ userInfo:", userInfo)
   try {
-    const { productName, price, description, quantity } = userInfo;
-    await addDoc(collection(db, 'users'), {
+    const { productName, price, description, image } = userInfo;
+
+    const storageRef = ref(storage, `ads/${image.name}`);
+    await uploadBytes(storageRef , image)
+    alert('image uploaded successfully')
+
+    const url = await getDownloadURL(storageRef);
+
+    await addDoc(collection(db, 'Ads'), {
       productName,
       price,
       description,
-      quantity
+      imageUrl:url
     });
 
     alert('Successfully Post Ad');
@@ -78,8 +87,22 @@ const postData = async (userInfo) => {
   };
 }
 
+async function getAds() {
+  const querySnapshot = await getDocs(collection(db, 'Ads'));
+  const ads = [];
+  querySnapshot.forEach((doc) => {
+      const ad = doc.data();
+      ad.id = doc.id;
+
+      ads.push(ad)
+  });
+
+  return ads;
+}
+
 export {
   SignUp,
   login,
-  postData
+  postData,
+  getAds
 };

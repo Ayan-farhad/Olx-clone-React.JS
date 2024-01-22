@@ -5,28 +5,28 @@ import building from '../../building.svg'
 import search from '../../search.svg'
 import sellicon from '../../sellicon.svg'
 import { useNavigate } from 'react-router-dom'
-import {onAuthStateChanged } from "firebase/auth";
-import { auth} from "../../Config/Firebase";
-import { useState , useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../Config/Firebase";
+import { useState, useEffect } from "react";
 
 
 
 function Navbar() {
     const navigate = useNavigate();
-    const [user , setUser] = useState(null)
+    const [user, setUser] = useState(null)
 
-    
-    useEffect(()=>{
+
+    useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-              console.log("🚀 ~ onAuthStateChanged ~ user:", user)
-              setUser(user)
-              // ...
+                console.log("🚀 ~ onAuthStateChanged ~ user:", user)
+                setUser(user)
+                // ...
             } else {
-              setUser(null)
+                setUser(null)
             }
-          });
-    },[])
+        });
+    }, [])
 
     return (<div>
         <div style={{ height: '7rem', }} ></div>
@@ -47,10 +47,10 @@ function Navbar() {
 
                 <input className='SearchInp' style={{ width: '40rem', height: '2.3rem', marginLeft: 18, marginTop: 6, border: '2px solid black', borderTopLeftRadius: 5, borderBottomLeftRadius: 5, paddingLeft: 8 }} placeholder="Find Cars, Mobile Phones and more..." ></input>
                 <img style={{ background: 'black', width: 50, height: 42.5, marginTop: 5.8, borderTopRightRadius: 5, borderBottomRightRadius: 5 }} src={search} ></img>
-                
-                {user ? 
-                <h3>{user.email}</h3> :
-                <button onClick={() => navigate('/Login')} style={{ marginLeft: '1rem', marginRight: '1rem', border: 'none', fontSize: 20, fontWeight: 'bolder' }} ><u>Login</u></button>}
+
+                {user ?
+                    <h3>{user.email}</h3> :
+                    <button onClick={() => navigate('/Login')} style={{ marginLeft: '1rem', marginRight: '1rem', border: 'none', fontSize: 20, fontWeight: 'bolder' }} ><u>Login</u></button>}
 
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginRight: 10, marginTop: 10 }}>
                     <div style={{ position: "relative" }}>

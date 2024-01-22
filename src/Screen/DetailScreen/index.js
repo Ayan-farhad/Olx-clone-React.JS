@@ -11,7 +11,7 @@ function DetailScreen() {
 
             <div style={{ display: "flex" }}>
                 <div style={{ width: '50%', border: '1px solid grey', }}>
-                    <img src={state.images[0]}></img>
+                    <img src={state.images}></img>
                 </div>
                 <div style={{ textAlign: "Left", width: '40%', border: '1px solid grey', marginLeft: '2rem', padding: 10 }}>
                     <div style={{ display: 'flex' }}>

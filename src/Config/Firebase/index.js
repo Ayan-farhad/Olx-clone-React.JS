@@ -89,6 +89,7 @@ const postData = async (userInfo) => {
 
 async function getAds() {
   const querySnapshot = await getDocs(collection(db, 'Ads'));
+
   const ads = [];
   querySnapshot.forEach((doc) => {
       const ad = doc.data();
